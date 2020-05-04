@@ -13,7 +13,10 @@
         <p class="card__text">
           {{ film.overview }}
         </p>
-        <button class="btn btn--block card__btn">Button</button>
+        <div class="buttons">
+          <button class="btn btn--block card__btn">+info</button>
+          <button class="btn btn--block card__btn">Comprar</button>
+        </div>
       </div>
     </div>
   </li>

@@ -66,6 +66,11 @@ img {
   vertical-align: middle;
 }
 
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
 .btn {
   background-color: white;
   border: 1px solid $gray-light;
@@ -77,7 +82,7 @@ img {
 
 .btn--block {
   display: block;
-  width: 100%;
+  width: 33%;
 }
 
 .cards {
