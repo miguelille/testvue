@@ -14,7 +14,12 @@
           {{ film.overview }}
         </p>
         <div class="buttons">
-          <button class="btn btn--block card__btn">+info</button>
+          <button
+            class="btn btn--block card__btn"
+            @click="$emit('show-modal', $event, film)"
+          >
+            +info
+          </button>
           <button class="btn btn--block card__btn">Comprar</button>
         </div>
       </div>
