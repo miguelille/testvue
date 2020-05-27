@@ -4,8 +4,29 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {}
+  state: {
+    showModal: false
+  },
+  mutations: {
+    openModal(state) {
+      state.showModal = true;
+    },
+    closeModal(state) {
+      state.showModal = false;
+    }
+  },
+  actions: {
+    open({ commit }) {
+      commit("openModal");
+    },
+    close({ commit }) {
+      commit("closeModal");
+    }
+  },
+  modules: {},
+  getters: {
+    showModal: state => {
+      return state.showModal;
+    }
+  }
 });

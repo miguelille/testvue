@@ -1,6 +1,6 @@
 <template>
-  <div v-show="showModal" class="ventanaModal">
-    <div>
+  <div v-show="showModal" id="myModal" class="modal">
+    <div class="modal-content">
       <div
         class="card__image"
         :style="{
@@ -30,24 +30,39 @@
 export default {
   name: "ModalFilm",
   props: ["filmShownModal"],
-  data: function() {
-    return {
-      showModal: true
-    };
+  computed: {
+    showModal() {
+      return this.$store.getters.showModal;
+    }
   },
   methods: {
     closeWindow() {
-      this.showModal = false;
+      this.$store.dispatch("close");
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.ventanaModal {
-  position: static;
-  width: 300px;
-  padding: 10px 20px;
-  margin: 20% auto;
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 40%; /* Full width */
+  height: 40%; /* Full height */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.card__image {
+  width: 100;
 }
 </style>

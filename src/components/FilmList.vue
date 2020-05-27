@@ -1,13 +1,15 @@
 <template>
-  <ul class="cards">
+  <div>
     <ModalFilm :filmShownModal="this.filmShownModal" />
-    <Film
-      v-for="film in films"
-      :key="film.id"
-      :film="film"
-      @show-modal="showModal"
-    />
-  </ul>
+    <ul class="cards">
+      <Film
+        v-for="film in films"
+        :key="film.id"
+        :film="film"
+        @show-modal="showModal"
+      />
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -26,6 +28,7 @@ export default {
   methods: {
     showModal: function(event, film) {
       this.filmShownModal = film;
+      this.$store.dispatch("open");
     }
   }
 };
