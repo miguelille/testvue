@@ -1,6 +1,5 @@
 <template>
   <div>
-    <ModalFilm :filmShownModal="this.filmShownModal" />
     <ul class="cards">
       <Film
         v-for="film in films"
@@ -14,17 +13,11 @@
 
 <script>
 import Film from "@/components/Film.vue";
-import ModalFilm from "@/components/ModalFilm.vue";
 
 export default {
   name: "FilmList",
   props: ["films"],
-  data: function() {
-    return {
-      filmShownModal: this.films[1]
-    };
-  },
-  components: { Film, ModalFilm },
+  components: { Film },
   methods: {
     showModal: function(event, film) {
       this.filmShownModal = film;
