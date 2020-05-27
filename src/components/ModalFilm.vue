@@ -5,15 +5,13 @@
         class="card__image"
         :style="{
           'background-image':
-            'url(https://image.tmdb.org/t/p/w500' +
-            filmShownModal.poster_path +
-            ')'
+            'url(https://image.tmdb.org/t/p/w500' + film.poster_path + ')'
         }"
       ></div>
       <div class="card__content">
-        <div class="card__title">{{ filmShownModal.original_title }}</div>
+        <div class="card__title">{{ film.original_title }}</div>
         <p class="card__text">
-          {{ filmShownModal.overview }}
+          {{ film.overview }}
         </p>
         <div class="buttons">
           <button class="btn btn--block card__btn" @click="closeWindow">
@@ -29,10 +27,13 @@
 <script>
 export default {
   name: "ModalFilm",
-  props: ["filmShownModal"],
   computed: {
     showModal() {
       return this.$store.getters.showModal;
+    },
+    film() {
+      console.log(this.$store.getters.modalFilm);
+      return this.$store.getters.modalFilm;
     }
   },
   methods: {

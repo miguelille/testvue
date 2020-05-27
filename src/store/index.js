@@ -7,7 +7,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     showModal: false,
-    films: []
+    films: [],
+    modalFilm: {}
   },
   mutations: {
     openModal(state) {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     },
     addFilms(state, films) {
       state.films = films;
+    },
+    changeFilm(state, film) {
+      state.modalFilm = film;
     }
   },
   actions: {
@@ -32,15 +36,21 @@ export default new Vuex.Store({
         console.log("Descarga");
         commit("addFilms", response.data.results);
       });
+    },
+    changeModalFilm({ commit }, film) {
+      console.log(film);
+      commit("changeFilm", film);
     }
   },
-  modules: {},
   getters: {
     showModal: state => {
       return state.showModal;
     },
     films: state => {
       return state.films;
+    },
+    modalFilm: state => {
+      return state.modalFilm.film;
     }
   }
 });

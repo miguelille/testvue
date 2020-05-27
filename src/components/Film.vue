@@ -14,10 +14,7 @@
           {{ film.overview }}
         </p>
         <div class="buttons">
-          <button
-            class="btn btn--block card__btn"
-            @click="$emit('show-modal', $event, film)"
-          >
+          <button class="btn btn--block card__btn" @click="openModal(film)">
             +info
           </button>
           <button class="btn btn--block card__btn">Comprar</button>
@@ -30,7 +27,14 @@
 <script>
 export default {
   name: "Film",
-  props: ["film"]
+  props: ["film"],
+  methods: {
+    openModal(film) {
+      console.log(film);
+      this.$store.dispatch("open");
+      this.$store.dispatch("changeModalFilm", { film: film });
+    }
+  }
 };
 </script>
 

@@ -1,12 +1,7 @@
 <template>
   <div>
     <ul class="cards">
-      <Film
-        v-for="film in films"
-        :key="film.id"
-        :film="film"
-        @show-modal="showModal"
-      />
+      <Film v-for="film in films" :key="film.id" :film="film" />
     </ul>
   </div>
 </template>
@@ -17,13 +12,7 @@ import Film from "@/components/Film.vue";
 export default {
   name: "FilmList",
   props: ["films"],
-  components: { Film },
-  methods: {
-    showModal: function(event, film) {
-      this.filmShownModal = film;
-      this.$store.dispatch("open");
-    }
-  }
+  components: { Film }
 };
 </script>
 
